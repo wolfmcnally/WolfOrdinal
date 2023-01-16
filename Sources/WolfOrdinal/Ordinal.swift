@@ -134,3 +134,15 @@ extension Ordinal {
         self = try JSONDecoder().decode(Ordinal.self, from: data)
     }
 }
+
+extension Ordinal {
+    public static func compare(lhs: Ordinal, rhs: Ordinal) -> ComparisonResult {
+        if lhs == rhs {
+            return .orderedSame
+        } else if lhs < rhs {
+            return .orderedAscending
+        } else {
+            return .orderedDescending
+        }
+    }
+}
