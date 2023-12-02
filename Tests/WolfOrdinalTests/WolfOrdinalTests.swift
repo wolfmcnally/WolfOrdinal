@@ -45,7 +45,9 @@ final class WolfOrdinalTests: XCTestCase {
         let c = Ordinal(after: a, before: b)
         XCTAssertEqual(c, [1, 1, 4])
         XCTAssert(a < c)
+        XCTAssert(a.string < c.string)
         XCTAssert(c < b)
+        XCTAssert(c.string < b.string)
     }
     
     func testLongerSecond() {
@@ -54,6 +56,17 @@ final class WolfOrdinalTests: XCTestCase {
         let c = Ordinal(after: a, before: b)
         XCTAssertEqual(c, [1, 2, 2])
         XCTAssert(a < c)
+        XCTAssert(a.string < c.string)
         XCTAssert(c < b)
+        XCTAssert(c.string < b.string)
+    }
+    
+    func testString() {
+        let elements = [-300, -3, 1, 0, 5, 10, -100]
+        let o = Ordinal(elements)
+        let expectedString = "摄敭敱数敵敺攌"
+        XCTAssertEqual(o.string, expectedString)
+        let o2 = Ordinal(expectedString)
+        XCTAssertEqual(o, o2)
     }
 }

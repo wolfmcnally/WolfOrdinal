@@ -1,20 +1,16 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 
 import PackageDescription
 
 let package = Package(
     name: "WolfOrdinal",
-    platforms: [
-        .iOS(.v15),
-        .macOS(.v12)
-    ],
     products: [
         .library(
             name: "WolfOrdinal",
             targets: ["WolfOrdinal"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/WolfMcNally/WolfBase", from: "5.0.0")
+        .package(url: "https://github.com/WolfMcNally/WolfBase", from: "6.0.0")
     ],
     targets: [
         .target(

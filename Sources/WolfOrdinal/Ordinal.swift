@@ -146,3 +146,15 @@ extension Ordinal {
         }
     }
 }
+
+public extension Ordinal {
+    static let zeroOffset = 0x6570 // 数 Japanese 'Kazu'; Chinese 'Shù'; "number"
+    
+    var string: String {
+        String(elements.map({Character(Unicode.Scalar($0 + Self.zeroOffset)!)}))
+    }
+    
+    init(_ string: String) {
+        self.init(string.map({ Int($0.unicodeScalars.first!.value) - Self.zeroOffset }))
+    }
+}
