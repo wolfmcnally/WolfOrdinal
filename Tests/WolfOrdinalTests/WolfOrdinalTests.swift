@@ -1,5 +1,4 @@
 import XCTest
-import WolfBase
 import WolfOrdinal
 
 final class WolfOrdinalTests: XCTestCase {
